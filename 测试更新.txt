@@ -1,0 +1,58 @@
+1、Java Servlet 是运行在 Web 服务器或应用服务器上的程序
+2、Jetty 目前的是一个比较被看好的 Servlet 引擎，它的架构比较简单，也是一个可扩展性和非常灵活的应用服务器
+3、Jetty 就是帮你管理这些 Handler（数据模型、组件），Jetty 的入口是 Server 类，Server 类启动完成了，就代表 Jetty 能为你提供服务了，Server 类启动时都调用了其它组件的 start 方法
+从 Jetty 的配置文件我们可以发现，配置 Jetty 的过程就是将那些类配置到 Server 的过程。
+4、Jetty 作为一个独立的 Servlet 引擎可以独立提供 Web 服务， Jetty 如何基于这两种协议工作，并且它们如何建立连接和接受请求的。
+Jetty 接收到一个请求时，必须要按照 HTTP 协议解析请求和封装返回的数据，那么 Jetty 是如何接受一个连接又如何处理这个连接呢
+Jetty 是如何处理一个 HTTP 请求的
+5、 Tomcat 还是比较稳定和成熟，尤其在企业级应用方面，Tomcat 仍然是第一选择
+从架构上来说，显然 Jetty 比 Tomcat 更加简单
+由于 Jetty 的架构非常简单，作为服务器它可以按需加载组件，这样不需要的组件可以去掉，这样无形可以减少服务器本身的内存开销
+
+etty更轻量级。这是相对Tomcat而言的。
+
+    由于Tomcat除了遵循Java Servlet规范之外，自身还扩展了大量JEE特性以满足企业级应用的需求，所以Tomcat是较重量级的，而且配置较Jetty亦复杂许多。
+但对于大量普通互联网应用而言，并不需要用到Tomcat其他高级特性，所以在这种情况下，使用Tomcat是很浪费资源的。这种劣势放在分布式环境下，更是明显。
+换成Jetty，每个应用服务器省下那几兆内存，对于大的分布式环境则是节省大量资源。而且，Jetty的轻量级也使其在处理高并发细粒度请求的场景下显得更快速高效。
+
+ JAVA_HOME环境变量。它指向jdk的安装目录
+
+ PATH环境变量。作用是指定命令搜索路径，在shell下面执行命令时
+
+ demo-base         实例的web应用程序 
+webapps             存放web应用程序，默认情况下该目录下面的文件夹或者war文件将在jetty启动的时候被运行
+resources            如果存在该目录，jetty启动时会将该目录加入类路径（
+ CLASSPATH环境变量。作用是指定类搜索路径，要使用已经编写好的类，前提当然是能够找到它们了，JVM就是通过CLASSPTH来寻找类的），默认存放log4j配置文件
+modules              Jetty相关模块程序源代码，正式环境可删除
+start.ini                存放启动信息
+start.jar                运行Jetty的jar
+lib/                      Jetty运行所必须的jar文件
+modules  Jetty相关模块程序源代码，正式环境可删除
+
+
+ Web应用部署
+Jetty能够部署各种Web应用程序的格式。这是通过 扫描${jetty.base}/webapps 文件夹下
+一个Context可以有如下
+
+    一个标准的war文件（必须以war结尾）
+    一个标准的web应用（必须有{dir}/WEB-INF/web.xml 文件）
+    一个包含静态资源的文件夹
+    一个Jetty描述XML，引用一个web应用
+
+
+组件	描述
+Tuple	Tuple是Storm中的主要数据结构。它是有序元素的列表。默认情况下，Tuple支持所有数据类型。通常，它被建模为一组逗号分隔的值，并传递到Storm集群。
+Stream	流是元组的无序序列。
+Spouts	流的源。通常，Storm从原始数据源（如Twitter Streaming API，Apache Kafka队列，Kestrel队列等）接受输入数据。否则，您可以编写spouts以从数据源读取数据。“ISpout”是实现spouts的核心接口，一些特定的接口是IRichSpout，BaseRichSpout，KafkaSpout等。
+Bolts	Bolts是逻辑处理单元。Spouts将数据传递到Bolts和Bolts过程，并产生新的输出流。Bolts可以执行过滤，聚合，加入，与数据源和数据库交互的操作。Bolts接收数据并发射到一个或多个Bolts。 “IBolt”是实现Bolts的核心接口。一些常见的接口是IRichBolt，IBasicBolt等。
+
+
+	
+crontab -l
+
+ 
+	
+
+
+	
+
